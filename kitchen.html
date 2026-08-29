@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Display | The Kumaun Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2d5a3d;
+      --accent: #c45c26;
+      --bg: #1a1a1a;
+      --card: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #999;
+      --pending: #e6a817;
+      --preparing: #3b82f6;
+      --ready: #22c55e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--primary);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+    }
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .refresh-btn, .clear-btn {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+    .refresh-btn:hover, .clear-btn:hover { background: rgba(255,255,255,0.25); }
+    .status {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+    .empty {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+    .empty h2 { margin-bottom: 8px; color: var(--text); }
+    .orders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .order-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 18px;
+      border-left: 5px solid var(--pending);
+      animation: fadeIn 0.3s ease;
+    }
+    .order-card.preparing { border-left-color: var(--preparing); }
+    .order-card.ready { border-left-color: var(--ready); }
+    .order-card.completed { opacity: 0.5; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .order-id {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .order-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .table-badge {
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    .items-list {
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+    .items-list li {
+      list-style: none;
+      padding: 4px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .items-list .qty {
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    .notes {
+      background: #333;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin: 10px 0;
+      color: #ffd54f;
+    }
+    .order-total {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin: 12px 0;
+      color: #4ade80;
+    }
+    .order-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      flex: 1;
+      min-width: 90px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s;
+    }
+    .action-btn:hover { opacity: 0.85; }
+    .btn-prepare { background: var(--preparing); color: white; }
+    .btn-ready { background: var(--ready); color: white; }
+    .btn-done { background: #555; color: white; }
+    .btn-delete { background: #7f1d1d; color: white; }
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #444;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .note-banner {
+      background: #2d3a2e;
+      border: 1px solid #3d5a40;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #a8d5b0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏔️ Kitchen • The Kumaun Cafe</h1>
+    <div class="header-actions">
+      <span class="status" id="lastUpdate">Live</span>
+      <button class="refresh-btn" onclick="loadOrders()">↻ Refresh</button>
+      <button class="clear-btn" onclick="clearCompleted()">Clear Done</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="note-banner">
+      <strong>Note:</strong> This kitchen view works on the <em>same device/browser</em> where orders are placed (using local storage). 
+      For real multi-device use, rely on the <strong>WhatsApp</strong> messages sent by customers, or host this system with a backend (Firebase/Supabase).
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="preparing">Preparing</button>
+      <button class="filter-btn" data-filter="ready">Ready</button>
+    </div>
+
+    <div id="ordersContainer" class="orders-grid">
+      <!-- Orders injected here -->
+    </div>
+  </div>
+
+  <script>
+    let currentFilter = "all";
+    let orders = [];
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderOrders();
+      });
+    });
+
+    function loadOrders() {
+      try {
+        orders = JSON.parse(localStorage.getItem("kumaun_orders") || "[]");
+      } catch (e) {
+        orders = [];
+      }
+      renderOrders();
+      document.getElementById("lastUpdate").textContent = "Updated " + new Date().toLocaleTimeString();
+    }
+
+    function renderOrders() {
+      const container = document.getElementById("ordersContainer");
+      let filtered = orders;
+      if (currentFilter !== "all") {
+        filtered = orders.filter(o => o.status === currentFilter);
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty" style="grid-column:1/-1">
+            <h2>No orders yet</h2>
+            <p>Orders placed from the menu will appear here (same browser).</p>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(order => {
+        const itemsHtml = order.items.map(i =>
+          `<li><span><span class="qty">${i.qty}×</span>${i.name}</span><span>₹${i.subtotal}</span></li>`
+        ).join("");
+
+        return `
+          <div class="order-card ${order.status}">
+            <div class="order-header">
+              <div>
+                <div class="order-id">${order.id}</div>
+                <div class="order-meta">${order.time} • ${order.name}</div>
+              </div>
+              <div class="table-badge">T-${order.table}</div>
+            </div>
+            <ul class="items-list">${itemsHtml}</ul>
+            ${order.notes ? `<div class="notes">📝 ${order.notes}</div>` : ""}
+            <div class="order-total">Total: ₹${order.total}</div>
+            <div class="order-actions">
+              ${order.status === "pending" ? `<button class="action-btn btn-prepare" onclick="updateStatus('${order.id}','preparing')">Start Preparing</button>` : ""}
+              ${order.status === "preparing" ? `<button class="action-btn btn-ready" onclick="updateStatus('${order.id}','ready')">Mark Ready</button>` : ""}
+              ${order.status === "ready" ? `<button class="action-btn btn-done" onclick="updateStatus('${order.id}','completed')">Served ✓</button>` : ""}
+              <button class="action-btn btn-delete" onclick="deleteOrder('${order.id}')">✕</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function updateStatus(id, status) {
+      orders = orders.map(o => o.id === id ? { ...o, status } : o);
+      localStorage.setItem("kumaun_orders", JSON.stringify(orders));
+      renderOrders();
+    }
+
+    function deleteOrder(id) {
+      if (!confirm("Remove this order?")) return;
+      orders = orders.filter(o => o.id !== id);
+      localStorage.setItem("kumaun_orders", JSON.stringify(orders));
+      renderOrders();
+    }
+
+    function clearCompleted() {
+      orders = orders.filter(o => o.status !== "completed");
+      localStorage.setItem("kumaun_orders", JSON.stringify(orders));
+      renderOrders();
+    }
+
+    // Auto refresh every 5 seconds
+    loadOrders();
+    setInterval(loadOrders, 5000);
+  </script>
+</body>
+</html>

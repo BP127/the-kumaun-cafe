@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate QR Code | The Kumaun Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: #faf7f2;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #2d5a3d;
+      margin-bottom: 8px;
+    }
+    .sub { color: #666; margin-bottom: 30px; text-align: center; max-width: 420px; }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(45,90,61,0.1);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+    label { display: block; text-align: left; font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #e8e0d5;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      font-family: inherit;
+    }
+    button {
+      background: #2d5a3d;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-family: inherit;
+    }
+    button:hover { background: #1e3d2a; }
+    #qrcode {
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: center;
+    }
+    #qrcode img, #qrcode canvas {
+      border-radius: 12px;
+      border: 8px solid white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .print-btn {
+      margin-top: 20px;
+      background: #c45c26;
+    }
+    .instructions {
+      margin-top: 30px;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #555;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+    .instructions ol { padding-left: 20px; }
+    .instructions li { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <h1>🏔️ Generate Menu QR</h1>
+  <p class="sub">Create a QR code that customers can scan to open the digital menu of The Kumaun Cafe.</p>
+
+  <div class="card">
+    <label for="menuUrl">Menu URL (after you host the site)</label>
+    <input type="url" id="menuUrl" placeholder="https://your-cafe.github.io/kumaun-cafe/" value="" />
+    <button onclick="generateQR()">Generate QR Code</button>
+    <div id="qrcode"></div>
+    <button class="print-btn" id="printBtn" style="display:none" onclick="window.print()">🖨️ Print QR</button>
+  </div>
+
+  <div class="instructions">
+    <strong>How to use:</strong>
+    <ol>
+      <li>Host the <code>kumaun-cafe</code> folder on GitHub Pages, Netlify, Vercel, or any free static host.</li>
+      <li>Copy the public URL of <code>index.html</code> and paste it above.</li>
+      <li>Generate the QR and print it.</li>
+      <li>Place the printed QR on every table.</li>
+      <li>Customers scan → open menu → order → send to your WhatsApp.</li>
+    </ol>
+    <p style="margin-top:12px"><strong>Tip:</strong> You can also create table-specific URLs later (e.g. <code>?table=5</code>) if you want.</p>
+  </div>
+
+  <script>
+    function generateQR() {
+      const url = document.getElementById("menuUrl").value.trim();
+      if (!url) {
+        alert("Please enter the menu URL first");
+        return;
+      }
+      const container = document.getElementById("qrcode");
+      container.innerHTML = "";
+      new QRCode(container, {
+        text: url,
+        width: 220,
+        height: 220,
+        colorDark: "#1e3d2a",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      document.getElementById("printBtn").style.display = "block";
+    }
+
+    // Pre-fill if possible
+    if (window.location.origin && !window.location.origin.includes("file")) {
+      const base = window.location.href.replace("qr.html", "index.html");
+      document.getElementById("menuUrl").value = base;
+    }
+  </script>
+</body>
+</html>
