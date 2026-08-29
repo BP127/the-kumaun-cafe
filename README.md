@@ -15,6 +15,7 @@ Customers scan a QR → browse authentic Kumaoni menu on their phone → add ite
 | **Table Ordering** | Customer enters table number + optional name & notes |
 | **Bill Generation** | Clear order summary + total |
 | **WhatsApp to Kitchen** | One-tap send of complete order to cafe WhatsApp |
+| **Google Sheets** | Every order automatically saved as a new row |
 | **Kitchen Display** | Simple staff page to see & manage orders (same browser) |
 | **QR Generator** | Built-in page to create printable QR codes |
 | **Offline-ready cart** | Cart persists in browser |
@@ -25,13 +26,14 @@ Customers scan a QR → browse authentic Kumaoni menu on their phone → add ite
 
 ```
 kumaun-cafe/
-├── index.html          ← Customer menu & ordering page
-├── kitchen.html        ← Staff / kitchen display
-├── qr.html             ← Generate printable QR codes
+├── index.html              ← Customer menu & ordering page
+├── kitchen.html            ← Staff / kitchen display
+├── qr.html                 ← Generate printable QR codes
+├── GOOGLE_SHEETS_SETUP.md  ← How to connect Google Sheets
 ├── css/style.css
 ├── js/
-│   ├── menu-data.js    ← All menu items & prices (edit here)
-│   └── app.js          ← Main logic + WhatsApp number
+│   ├── menu-data.js        ← All menu items & prices (edit here)
+│   └── app.js              ← Main logic + WhatsApp + Google Sheet URL
 └── README.md
 ```
 
@@ -47,6 +49,14 @@ const CAFE_WHATSAPP = "919876543210"; // ← Replace with your number (country c
 ```
 
 Example for Indian number `98765 43210` → `"919876543210"`
+
+### 1b. Connect Google Sheets (optional but recommended)
+Follow the full guide in **`GOOGLE_SHEETS_SETUP.md`**.  
+After you get the Web App URL, paste it here in `js/app.js`:
+
+```js
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/XXXX/exec";
+```
 
 ### 2. Host the website (free)
 
