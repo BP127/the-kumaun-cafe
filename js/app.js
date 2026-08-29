@@ -1,6 +1,6 @@
 // ========== CONFIG ==========
 // Change this to your cafe's WhatsApp number (with country code, no + or spaces)
-const CAFE_WHATSAPP = "919876543210"; // ← REPLACE with real number
+const CAFE_WHATSAPP = "9664687550"; // ← REPLACE with real number
 
 // ========== STATE ==========
 let cart = {}; // { id: qty }
