@@ -68,11 +68,12 @@ function createMenuItem(item) {
 
   const qty = cart[item.id] || 0;
 
-  const imgSrc = item.image || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop";
+  const imgSrc = item.image || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop&auto=format";
 
   div.innerHTML = `
-    <img class="item-image" src="${imgSrc}" alt="${item.name}" loading="lazy"
-         onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop'" />
+    <img class="item-image" src="${imgSrc}" alt="${item.name}"
+         loading="lazy" decoding="async" referrerpolicy="no-referrer"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop&auto=format';" />
     <div class="item-info">
       <div class="item-header">
         <span class="item-name">${item.name}</span>

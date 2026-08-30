@@ -274,9 +274,12 @@ body {
 .item-image {
   width: 88px;
   height: 88px;
+  min-width: 88px;
+  min-height: 88px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  display: block;
   background: #2a2a2a;
   border: 2px solid rgba(201, 162, 39, 0.35);
   box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.08);
