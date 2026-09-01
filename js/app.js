@@ -2,6 +2,9 @@
 // Change this to your cafe's WhatsApp number (with country code, no + or spaces)
 const CAFE_WHATSAPP = "9664687550"; // ← REPLACE with real number
 
+// Fallback image shown if a dish has no image or the image fails to load
+const DEFAULT_DISH_IMAGE = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop&auto=format";
+
 // ========== STATE ==========
 let cart = {}; // { id: qty }
 let currentCategory = "all";
@@ -63,8 +66,12 @@ function createMenuItem(item) {
   div.dataset.id = item.id;
 
   const qty = cart[item.id] || 0;
+  const imgSrc = item.image || DEFAULT_DISH_IMAGE;
 
   div.innerHTML = `
+    <img class="item-image" src="${imgSrc}" alt="${item.name}"
+         loading="lazy" decoding="async" referrerpolicy="no-referrer"
+         onerror="this.onerror=null;this.src='${DEFAULT_DISH_IMAGE}';" />
     <div class="item-info">
       <div class="item-header">
         <span class="item-name">${item.name}</span>
