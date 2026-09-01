@@ -4,28 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kitchen Display | The Kumaun Cafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
   <style>
     :root {
-      --primary: #2d5a3d;
-      --accent: #c45c26;
-      --bg: #1a1a1a;
-      --card: #2a2a2a;
-      --text: #f0f0f0;
-      --muted: #999;
-      --pending: #e6a817;
-      --preparing: #3b82f6;
-      --ready: #22c55e;
+      --primary: rgba(244, 180, 0, 0.16);
+      --accent: #f4b400;
+      --bg: transparent;
+      --card: rgba(255, 255, 255, 0.05);
+      --text: #ffffff;
+      --text-soft: rgba(255, 255, 255, 0.82);
+      --muted: rgba(255, 255, 255, 0.62);
+      --pending: #f4b400;
+      --preparing: #60a5fa;
+      --ready: #4ade80;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
     }
     header {
-      background: var(--primary);
+      background: rgba(10, 10, 10, 0.86);
       padding: 16px 24px;
       display: flex;
       align-items: center;
@@ -35,8 +39,9 @@
       z-index: 10;
     }
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-family: 'Caveat', 'Segoe Print', cursive;
+      font-size: 2.15rem;
+      line-height: 0.95;
     }
     .header-actions {
       display: flex;
@@ -44,16 +49,16 @@
       align-items: center;
     }
     .refresh-btn, .clear-btn {
-      background: rgba(255,255,255,0.15);
-      border: none;
-      color: white;
+      background: rgba(244, 180, 0, 0.14);
+      border: 1px solid rgba(244, 180, 0, 0.28);
+      color: var(--text);
       padding: 8px 14px;
-      border-radius: 8px;
+      border-radius: 999px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
     }
-    .refresh-btn:hover, .clear-btn:hover { background: rgba(255,255,255,0.25); }
+    .refresh-btn:hover, .clear-btn:hover { background: rgba(244, 180, 0, 0.24); }
     .status {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -76,9 +81,11 @@
     }
     .order-card {
       background: var(--card);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
       border-left: 5px solid var(--pending);
+      box-shadow: var(--shadow-md);
       animation: fadeIn 0.3s ease;
     }
     .order-card.preparing { border-left-color: var(--preparing); }
@@ -103,8 +110,8 @@
       color: var(--muted);
     }
     .table-badge {
-      background: var(--accent);
-      color: white;
+      background: rgba(244, 180, 0, 0.16);
+      color: var(--accent);
       font-weight: 700;
       padding: 4px 12px;
       border-radius: 8px;
@@ -126,18 +133,18 @@
       margin-right: 8px;
     }
     .notes {
-      background: #333;
+      background: rgba(255, 255, 255, 0.06);
       padding: 8px 12px;
       border-radius: 8px;
       font-size: 0.85rem;
       margin: 10px 0;
-      color: #ffd54f;
+      color: var(--text-soft);
     }
     .order-total {
       font-weight: 700;
       font-size: 1.15rem;
       margin: 12px 0;
-      color: #4ade80;
+      color: var(--accent);
     }
     .order-actions {
       display: flex;
@@ -149,7 +156,7 @@
       min-width: 90px;
       padding: 10px;
       border: none;
-      border-radius: 10px;
+      border-radius: 999px;
       font-weight: 600;
       font-size: 0.85rem;
       cursor: pointer;
@@ -170,32 +177,32 @@
     .filter-btn {
       padding: 8px 16px;
       border-radius: 20px;
-      border: 1px solid #444;
-      background: transparent;
-      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-soft);
       cursor: pointer;
       font-family: inherit;
       font-size: 0.85rem;
     }
     .filter-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
+      background: rgba(244, 180, 0, 0.16);
+      color: var(--accent);
+      border-color: rgba(244, 180, 0, 0.42);
     }
     .note-banner {
-      background: #2d3a2e;
-      border: 1px solid #3d5a40;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(244, 180, 0, 0.18);
       border-radius: 12px;
       padding: 14px 18px;
       margin-bottom: 20px;
       font-size: 0.85rem;
-      color: #a8d5b0;
+      color: var(--text-soft);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🏔️ Kitchen • The Kumaun Cafe</h1>
+    <h1>🏔️ Kitchen • <span class="title-accent">The Kumaun Cafe</span></h1>
     <div class="header-actions">
       <span class="status" id="lastUpdate">Live</span>
       <button class="refresh-btn" onclick="loadOrders()">↻ Refresh</button>

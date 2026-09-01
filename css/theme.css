@@ -1,0 +1,169 @@
+:root {
+  --bg-base: #080808;
+  --bg-elevated: rgba(18, 18, 18, 0.92);
+  --bg-soft: rgba(255, 255, 255, 0.05);
+  --bg-softer: rgba(255, 255, 255, 0.08);
+  --panel: rgba(17, 17, 17, 0.9);
+  --panel-strong: rgba(12, 12, 12, 0.96);
+  --panel-border: rgba(244, 180, 0, 0.2);
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.62);
+  --accent: #f4b400;
+  --accent-soft: #ffd45a;
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.34);
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(244, 180, 0, 0.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 26%),
+    linear-gradient(180deg, #1b1b1b 0%, #0d0d0d 48%, #050505 100%);
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  background: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.045), transparent 18%),
+    radial-gradient(circle at 75% 30%, rgba(255, 255, 255, 0.03), transparent 22%),
+    radial-gradient(circle at 50% 85%, rgba(244, 180, 0, 0.035), transparent 20%),
+    repeating-radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.02) 0 2px, transparent 2px 7px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  transition: transform 0.18s ease, filter 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+button:hover {
+  filter: brightness(1.04);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+.handwritten-title,
+.handwritten-hero,
+.display-script {
+  font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+}
+
+h3,
+h4,
+.section-heading,
+.item-name,
+.item-price,
+.category-title,
+.cat-btn,
+.btn-primary,
+.btn-secondary,
+.btn-whatsapp,
+.cart-total,
+.order-total,
+.order-id,
+.table-badge,
+.filter-btn,
+.action-btn,
+label {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+}
+
+.title-accent,
+.accent,
+.price,
+.highlight,
+.item-price,
+.cart-total strong,
+.order-total,
+.table-badge,
+.notes strong,
+.note-banner strong {
+  color: var(--accent);
+}
+
+.surface-card,
+.card,
+.order-card,
+.modal-content,
+.cart-sidebar {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.muted,
+.subtle,
+.tagline,
+.hero-sub,
+.item-desc,
+.empty-cart,
+.footer,
+.footer-small,
+.modal-sub,
+.order-meta,
+.status,
+.sub,
+.instructions,
+.empty,
+.notes,
+.note-banner {
+  color: var(--text-muted);
+}
+
+::selection {
+  background: rgba(244, 180, 0, 0.3);
+  color: var(--text);
+}

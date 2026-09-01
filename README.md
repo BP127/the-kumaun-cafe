@@ -108,7 +108,7 @@ Just add, edit or remove objects. Prices are in ₹.
 ---
 
 ## 🎨 Theme
-Warm mountain greens + terracotta accents inspired by the hills of Kumaon. Fully responsive and works great on mobile.
+Dark chalkboard-inspired styling with smoky backgrounds, white typography, and yellow poster-style accents. Fully responsive and works great on mobile.
 
 ---
 

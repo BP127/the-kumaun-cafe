@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generate QR Code | The Kumaun Cafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
     body {
-      font-family: 'Poppins', system-ui, sans-serif;
-      background: #faf7f2;
-      color: #1a1a1a;
+      font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+      background: transparent;
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -18,33 +21,36 @@
       padding: 40px 20px;
     }
     h1 {
-      font-family: 'Playfair Display', serif;
-      color: #2d5a3d;
+      font-family: 'Caveat', 'Segoe Print', cursive;
+      color: var(--text);
       margin-bottom: 8px;
     }
-    .sub { color: #666; margin-bottom: 30px; text-align: center; max-width: 420px; }
+    .sub { color: var(--text-muted); margin-bottom: 30px; text-align: center; max-width: 420px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     .card {
-      background: white;
-      border-radius: 20px;
+      background: rgba(17, 17, 17, 0.9);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
       padding: 32px;
-      box-shadow: 0 8px 30px rgba(45,90,61,0.1);
+      box-shadow: var(--shadow-lg);
       text-align: center;
       max-width: 420px;
       width: 100%;
     }
-    label { display: block; text-align: left; font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; }
+    label { display: block; text-align: left; font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: var(--text-soft); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     input {
       width: 100%;
       padding: 12px 14px;
-      border: 1.5px solid #e8e0d5;
-      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
       font-size: 1rem;
       margin-bottom: 16px;
-      font-family: inherit;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
     }
     button {
-      background: #2d5a3d;
-      color: white;
+      background: var(--accent);
+      color: #111;
       border: none;
       padding: 14px 28px;
       border-radius: 12px;
@@ -54,7 +60,7 @@
       width: 100%;
       font-family: inherit;
     }
-    button:hover { background: #1e3d2a; }
+    button:hover { background: var(--accent-soft); }
     #qrcode {
       margin: 24px auto 0;
       display: flex;
@@ -62,18 +68,20 @@
     }
     #qrcode img, #qrcode canvas {
       border-radius: 12px;
-      border: 8px solid white;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      border: 8px solid rgba(255,255,255,0.95);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.3);
     }
     .print-btn {
       margin-top: 20px;
-      background: #c45c26;
+      background: rgba(244, 180, 0, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(244, 180, 0, 0.28);
     }
     .instructions {
       margin-top: 30px;
       text-align: left;
       font-size: 0.9rem;
-      color: #555;
+      color: var(--text-muted);
       max-width: 420px;
       line-height: 1.6;
     }
@@ -82,7 +90,7 @@
   </style>
 </head>
 <body>
-  <h1>🏔️ Generate Menu QR</h1>
+  <h1>🏔️ Generate <span class="title-accent">Menu QR</span></h1>
   <p class="sub">Create a QR code that customers can scan to open the digital menu of The Kumaun Cafe.</p>
 
   <div class="card">
@@ -102,7 +110,7 @@
       <li>Place the printed QR on every table.</li>
       <li>Customers scan → open menu → order → send to your WhatsApp.</li>
     </ol>
-    <p style="margin-top:12px"><strong>Tip:</strong> You can also create table-specific URLs later (e.g. <code>?table=5</code>) if you want.</p>
+    <p style="margin-top:12px"><strong class="title-accent">Tip:</strong> You can also create table-specific URLs later (e.g. <code>?table=5</code>) if you want.</p>
   </div>
 
   <script>
@@ -118,7 +126,7 @@
         text: url,
         width: 220,
         height: 220,
-        colorDark: "#1e3d2a",
+        colorDark: "#111111",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
       });
