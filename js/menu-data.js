@@ -231,14 +231,6 @@ const MENU = [
     price: 220,
     category: "combos",
     image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=400&fit=crop&auto=format"
-  },
-  {
-    id: "Test-Menu",
-    name: "Test:Evening Snacks Combo",
-    desc: "Test:Any 2 snacks + 2 hot beverages",
-    price: 220,
-    category: "Test:combos",
-    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=400&fit=crop&auto=format"
   }
 ];
 
