@@ -362,8 +362,8 @@ function buildWhatsAppMessage(order) {
   let text = `🏔️ *THE KUMAUN CAFE - NEW ORDER*\n`;
   text += `━━━━━━━━━━━━━━━━\n`;
   text += `📋 *Order ID:* ${order.id}\n`;
-  text += `🪑 *Table:* ${order.table}\n`;
-  text += `👤 *Customer:* ${order.name}\n`;
+  text += `🪑 *Table No:* ${order.table}\n`;
+  text += `👤 *Customer Name:* ${order.name}\n`;
   text += `🕐 *Time:* ${order.time}\n`;
   text += `━━━━━━━━━━━━━━━━\n\n`;
   text += `*ITEMS:*\n`;
