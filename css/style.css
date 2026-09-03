@@ -1,9 +1,9 @@
 :root {
-  --primary: #27523b;
-  --primary-dark: #173222;
-  --accent: #d4742f;
-  --accent-light: #efa15d;
-  --bg: #f4f1eb;
+  --primary: #1f5a43;
+  --primary-dark: #123626;
+  --accent: #c56b2d;
+  --accent-light: #e9a06a;
+  --bg: #f7f2ea;
   --bg-soft: #fbf8f3;
   --card: #ffffff;
   --text: #1f241f;
@@ -37,7 +37,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
 }
 
 img,
@@ -239,6 +239,14 @@ svg {
   color: white;
   border-color: var(--primary);
   transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(18, 54, 38, 0.35);
+  outline-offset: 2px;
 }
 
 /* Menu */
@@ -748,9 +756,10 @@ svg {
 /* QR Hint */
 .qr-hint {
   position: fixed;
-  bottom: 20px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
   left: 16px;
-  right: 16px;
+  right: auto;
+  max-width: min(420px, calc(100vw - 32px));
   background: var(--primary-dark);
   color: white;
   padding: 14px 16px;
@@ -779,6 +788,48 @@ svg {
 
 .qr-hint.hidden {
   display: none;
+}
+
+.quick-checkout {
+  position: fixed;
+  right: calc(14px + env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 120;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 16px 11px;
+  min-height: 56px;
+  min-width: 188px;
+  text-align: left;
+  color: #fff;
+  background: linear-gradient(135deg, #c56b2d 0%, #e39a62 100%);
+  box-shadow: 0 14px 28px rgba(36, 24, 16, 0.28);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.quick-checkout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(36, 24, 16, 0.34);
+  filter: saturate(1.02);
+}
+
+.quick-checkout:active {
+  transform: translateY(0);
+}
+
+.quick-checkout-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+
+.quick-checkout-meta {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  opacity: 0.95;
 }
 
 /* Footer */
@@ -821,6 +872,18 @@ svg {
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  .quick-checkout {
+    right: calc(10px + env(safe-area-inset-right));
+    left: auto;
+    width: min(260px, calc(100vw - 20px));
+    padding-inline: 14px;
+  }
+
+  .qr-hint {
+    bottom: calc(86px + env(safe-area-inset-bottom));
+    max-width: min(320px, calc(100vw - 20px));
   }
 }
 
