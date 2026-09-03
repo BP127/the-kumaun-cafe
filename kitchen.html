@@ -23,6 +23,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      overflow-x: hidden;
     }
     header {
       background: var(--primary);
@@ -30,6 +31,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -42,12 +45,14 @@
       display: flex;
       gap: 12px;
       align-items: center;
+      flex-wrap: wrap;
     }
     .refresh-btn, .clear-btn {
       background: rgba(255,255,255,0.15);
       border: none;
       color: white;
       padding: 8px 14px;
+      min-height: 40px;
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
@@ -71,7 +76,7 @@
     .empty h2 { margin-bottom: 8px; color: var(--text); }
     .orders-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
     }
     .order-card {
@@ -190,6 +195,35 @@
       margin-bottom: 20px;
       font-size: 0.85rem;
       color: #a8d5b0;
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 12px 14px;
+      }
+      header h1 {
+        font-size: 1.1rem;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .status {
+        width: 100%;
+      }
+      .container {
+        padding: 16px 12px;
+      }
+      .orders-grid {
+        grid-template-columns: 1fr;
+      }
+      .order-card {
+        padding: 14px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 1320px;
+      }
     }
   </style>
 </head>
