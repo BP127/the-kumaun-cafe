@@ -1,3 +1,33 @@
+const DISH_IMAGE_MAP = {
+  buransh: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&h=400&fit=crop&auto=format",
+  "pahadi-chai": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+  "filter-coffee": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop&auto=format",
+  "masala-chai": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop&auto=format",
+  lassi: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop&auto=format",
+  "lime-soda": "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=400&fit=crop&auto=format",
+  "cold-coffee": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop&auto=format",
+  "aloo-gutke": "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=400&h=400&fit=crop&auto=format",
+  "dal-vada": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=400&fit=crop&auto=format",
+  "bhang-chutney": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=400&fit=crop&auto=format",
+  "honey-chilli": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=400&h=400&fit=crop&auto=format",
+  "veg-momos": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&h=400&fit=crop&auto=format",
+  "paneer-tikka": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=400&fit=crop&auto=format",
+  "bhatt-churkani": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop&auto=format",
+  kafuli: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=400&fit=crop&auto=format",
+  chainsoo: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&auto=format",
+  "gahat-dal": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop&auto=format",
+  thechwani: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=400&fit=crop&auto=format",
+  "kumaoni-thali": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop&auto=format",
+  "veg-pulao": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&auto=format",
+  "bal-mithai": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop&auto=format",
+  singori: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&h=400&fit=crop&auto=format",
+  "jhangora-kheer": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format",
+  "gulab-jamun": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop&auto=format",
+  "combo-breakfast": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=400&fit=crop&auto=format",
+  "combo-lunch": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&h=400&fit=crop&auto=format",
+  "combo-evening": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=400&fit=crop&auto=format"
+};
+
 const MENU = [
   // Beverages
   {
@@ -241,3 +271,7 @@ const CATEGORY_LABELS = {
   sweets: "Sweets & Desserts",
   combos: "Value Combos"
 };
+
+MENU.forEach((item) => {
+  item.image = DISH_IMAGE_MAP[item.id] || item.image;
+});

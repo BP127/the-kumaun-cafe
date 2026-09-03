@@ -19,6 +19,9 @@ const closeCart = document.getElementById("closeCart");
 const cartItemsEl = document.getElementById("cartItems");
 const cartTotalEl = document.getElementById("cartTotal");
 const checkoutBtn = document.getElementById("checkoutBtn");
+const quickCheckoutBtn = document.getElementById("quickCheckoutBtn");
+const quickCheckoutLabel = document.getElementById("quickCheckoutLabel");
+const quickCheckoutMeta = document.getElementById("quickCheckoutMeta");
 const checkoutModal = document.getElementById("checkoutModal");
 const closeCheckout = document.getElementById("closeCheckout");
 const orderForm = document.getElementById("orderForm");
@@ -140,13 +143,35 @@ function updateUI() {
   renderMenu(); // re-render to update qty buttons
   renderCartSidebar();
   updateCartBadge();
+  updateQuickCheckoutCTA();
 }
 
 function updateCartBadge() {
-  const totalQty = Object.values(cart).reduce((a, b) => a + b, 0);
+  const totalQty = getCartItemCount();
   cartCount.textContent = totalQty;
   cartCount.classList.toggle("hidden", totalQty === 0);
   checkoutBtn.disabled = totalQty === 0;
+}
+
+function getCartItemCount() {
+  return Object.values(cart).reduce((a, b) => a + b, 0);
+}
+
+function updateQuickCheckoutCTA() {
+  if (!quickCheckoutBtn || !quickCheckoutLabel || !quickCheckoutMeta) return;
+  const totalQty = getCartItemCount();
+  const total = getCartTotal();
+  const label = totalQty > 0 ? "Quick Checkout" : "View Cart";
+  const meta = totalQty > 0
+    ? `${totalQty} item${totalQty > 1 ? "s" : ""} • ₹${total}`
+    : "Cart is empty";
+
+  quickCheckoutLabel.textContent = label;
+  quickCheckoutMeta.textContent = meta;
+  quickCheckoutBtn.setAttribute(
+    "aria-label",
+    totalQty > 0 ? `Quick checkout with ${totalQty} item${totalQty > 1 ? "s" : ""}` : "View cart quickly"
+  );
 }
 
 function renderCartSidebar() {
@@ -212,6 +237,13 @@ function getCartItemsList() {
 // ========== CART SIDEBAR EVENTS ==========
 function setupCartEvents() {
   cartBtn.addEventListener("click", openCart);
+  quickCheckoutBtn?.addEventListener("click", () => {
+    if (getCartItemCount() > 0) {
+      openCheckout();
+      return;
+    }
+    openCart();
+  });
   closeCart.addEventListener("click", closeCartSidebar);
   cartOverlay.addEventListener("click", closeCartSidebar);
   checkoutBtn.addEventListener("click", openCheckout);
@@ -320,7 +352,7 @@ function showSuccess(order) {
 }
 
 function buildWhatsAppMessage(order) {
-  let text = `🏔️ *THE KUMAUN CAFE - NEW ORDER*\n`;
+  let text = `🏔️ *THE KUMAON CAFE - NEW ORDER*\n`;
   text += `━━━━━━━━━━━━━━━━\n`;
   text += `📋 *Order ID:* ${order.id}\n`;
   text += `🪑 *Table:* ${order.table}\n`;
