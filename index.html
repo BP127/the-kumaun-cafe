@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Kumaun Cafe | Digital Menu</title>
-  <meta name="description" content="Scan, order & enjoy authentic Kumaoni flavours at The Kumaun Cafe" />
+  <meta name="description" content="Interactive digital menu – Chinese, Indian & South Indian favourites at The Kumaun Cafe" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -18,33 +18,82 @@
       <div class="logo">
         <div>
           <h1 class="handwritten-title">The Kumaun Cafe</h1>
-          <p class="tagline">Taste of the Hills</p>
+          <p class="tagline">Chinese · Indian · South Indian</p>
         </div>
       </div>
-      <button id="cartBtn" class="cart-btn" aria-label="Open cart">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-        </svg>
-        <span id="cartCount" class="cart-count hidden">0</span>
-      </button>
+      <div class="header-actions">
+        <button id="favBtn" class="icon-btn" aria-label="Show favourites" title="Favourites">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span id="favCount" class="cart-count hidden">0</span>
+        </button>
+        <button id="cartBtn" class="cart-btn" aria-label="Open cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span id="cartCount" class="cart-count hidden">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Elegant Hero Banner (Coffee House style) -->
+  <!-- Elegant Hero Banner -->
   <section class="hero">
     <div class="hero-banner">
       <div class="hero-side left">MENU</div>
       <div class="hero-center">
         <h2 class="handwritten-hero">Kumaun Cafe</h2>
         <div class="hero-cup">
-          <span class="cup-emoji">☕</span>
+          <span class="cup-emoji">🍽️</span>
         </div>
-        <p class="hero-sub">Authentic Flavours of the Hills</p>
+        <p class="hero-sub">Chinese · Indian · South Indian</p>
+        <p class="hero-hint">Tap a dish for details · Filter by cuisine · Order in seconds</p>
       </div>
       <div class="hero-side right">ORDER</div>
     </div>
   </section>
+
+  <!-- Interactive filter bar -->
+  <div class="filter-bar" id="filterBar">
+    <div class="search-wrap">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="search" id="searchInput" class="search-input" placeholder="Search dishes, e.g. dosa, momos…" autocomplete="off" />
+      <button type="button" id="clearSearch" class="clear-search hidden" aria-label="Clear search">&times;</button>
+    </div>
+
+    <div class="cuisine-nav" id="cuisineNav" role="tablist" aria-label="Cuisine">
+      <button class="cuisine-btn active" data-cuisine="all" role="tab" aria-selected="true">
+        <span class="cuisine-emoji">🌐</span> All
+      </button>
+      <button class="cuisine-btn" data-cuisine="chinese" role="tab" aria-selected="false">
+        <span class="cuisine-emoji">🥡</span> Chinese
+      </button>
+      <button class="cuisine-btn" data-cuisine="indian" role="tab" aria-selected="false">
+        <span class="cuisine-emoji">🍛</span> Indian
+      </button>
+      <button class="cuisine-btn" data-cuisine="south-indian" role="tab" aria-selected="false">
+        <span class="cuisine-emoji">🥞</span> South Indian
+      </button>
+    </div>
+
+    <div class="diet-row">
+      <div class="diet-filters" id="dietFilters" role="group" aria-label="Diet">
+        <button class="diet-btn active" data-diet="all">All</button>
+        <button class="diet-btn veg" data-diet="veg"><span class="diet-dot veg"></span> Veg</button>
+        <button class="diet-btn nonveg" data-diet="nonveg"><span class="diet-dot nonveg"></span> Non-Veg</button>
+      </div>
+      <div class="view-toggles">
+        <button type="button" id="sortBtn" class="chip-btn" aria-label="Sort menu" title="Sort">
+          Sort: Popular
+        </button>
+        <button type="button" id="showFavOnly" class="chip-btn" aria-pressed="false" title="Favourites only">♥ Favs</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Category Navigation -->
   <nav class="category-nav" id="categoryNav">
@@ -55,6 +104,10 @@
     <button class="cat-btn" data-category="sweets">Sweets</button>
     <button class="cat-btn" data-category="combos">Combos</button>
   </nav>
+
+  <div class="results-meta" id="resultsMeta">
+    <span id="resultsCount">Loading menu…</span>
+  </div>
 
   <!-- Menu Grid -->
   <main class="menu-container" id="menuContainer">
@@ -79,6 +132,14 @@
       <button id="checkoutBtn" class="btn-primary" disabled>Place Order</button>
     </div>
   </aside>
+
+  <!-- Item Detail Modal -->
+  <div id="itemModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="itemModalTitle">
+    <div class="modal-content item-modal-content">
+      <button class="modal-close" id="closeItemModal" aria-label="Close">&times;</button>
+      <div id="itemModalBody"></div>
+    </div>
+  </div>
 
   <!-- Checkout Modal -->
   <div id="checkoutModal" class="modal hidden">
@@ -119,13 +180,16 @@
       
       <div class="success-actions">
         <a id="whatsappBtn" href="#" target="_blank" class="btn-whatsapp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075 conf-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Send to Kitchen (WhatsApp)
         </a>
         <button id="newOrderBtn" class="btn-secondary">New Order</button>
       </div>
     </div>
   </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
   <!-- Floating QR hint (first visit) -->
   <div id="qrHint" class="qr-hint hidden">
@@ -134,7 +198,7 @@
   </div>
 
   <footer class="footer">
-    <p>The Kumaun Cafe • Authentic Kumaoni Cuisine</p>
+    <p>The Kumaun Cafe • Chinese · Indian · South Indian</p>
     <p class="footer-small">Made with ❤️ in the hills</p>
   </footer>
 

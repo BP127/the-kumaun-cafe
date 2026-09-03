@@ -6,6 +6,9 @@ const MENU = [
     desc: "Refreshing rhododendron flower juice – a Kumaoni classic",
     price: 80,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     badge: "Local Favourite",
     image: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&h=400&fit=crop&auto=format"
   },
@@ -15,22 +18,32 @@ const MENU = [
     desc: "Strong mountain-style tea with local spices & herbs",
     price: 40,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
   },
   {
     id: "filter-coffee",
     name: "South Indian Filter Coffee",
-    desc: "Rich, aromatic filter coffee served in traditional style",
+    desc: "Rich, aromatic filter coffee served in traditional dabarah-tumbler style",
     price: 50,
     category: "beverages",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 0,
+    badge: "Classic",
     image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop&auto=format"
   },
   {
     id: "masala-chai",
     name: "Masala Chai",
-    desc: "Classic spiced Indian tea",
+    desc: "Classic spiced Indian tea with ginger, cardamom & cloves",
     price: 45,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
     image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -39,6 +52,9 @@ const MENU = [
     desc: "Thick yogurt-based drink – choose sweet or salted",
     price: 60,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -47,6 +63,9 @@ const MENU = [
     desc: "Freshly squeezed lime with soda – sweet, salted or mixed",
     price: 50,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -55,16 +74,67 @@ const MENU = [
     desc: "Creamy blended coffee with ice cream",
     price: 90,
     category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop&auto=format"
   },
+  {
+    id: "jaljeera",
+    name: "Jaljeera",
+    desc: "Cooling cumin-spiced lemonade with mint – perfect palate cleanser",
+    price: 55,
+    category: "beverages",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "buttermilk",
+    name: "Spiced Buttermilk (Chaas)",
+    desc: "Light tempered buttermilk with curry leaves & mustard seeds",
+    price: 45,
+    category: "beverages",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "jasmine-tea",
+    name: "Jasmine Green Tea",
+    desc: "Fragrant Chinese jasmine tea – light & calming",
+    price: 70,
+    category: "beverages",
+    cuisine: "chinese",
+    veg: true,
+    spice: 0,
+    image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "lemon-coriander",
+    name: "Lemon Coriander Soup",
+    desc: "Zesty Indo-Chinese clear soup with fresh herbs",
+    price: 110,
+    category: "beverages",
+    cuisine: "chinese",
+    veg: true,
+    spice: 1,
+    badge: "Light",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&auto=format"
+  },
 
-  // ========== SNACKS ==========
+  // ========== SNACKS / STARTERS ==========
   {
     id: "aloo-gutke",
     name: "Aloo Ke Gutke",
     desc: "Spicy roasted potatoes with jakhiya seeds & red chillies",
     price: 90,
     category: "snacks",
+    cuisine: "indian",
+    veg: true,
+    spice: 3,
     badge: "Must Try",
     image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=400&h=400&fit=crop&auto=format"
   },
@@ -74,6 +144,9 @@ const MENU = [
     desc: "Crispy lentil fritters made from local dal",
     price: 80,
     category: "snacks",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -82,6 +155,9 @@ const MENU = [
     desc: "Tangy hemp-seed chutney served with crispy papad",
     price: 60,
     category: "snacks",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     badge: "Unique",
     image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=400&fit=crop&auto=format"
   },
@@ -91,6 +167,10 @@ const MENU = [
     desc: "Crispy potato fingers tossed in sweet & spicy honey-chilli glaze",
     price: 120,
     category: "snacks",
+    cuisine: "chinese",
+    veg: true,
+    spice: 2,
+    badge: "Popular",
     image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -99,15 +179,171 @@ const MENU = [
     desc: "Soft dumplings with spicy tomato chutney",
     price: 100,
     category: "snacks",
+    cuisine: "chinese",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chicken-momos",
+    name: "Chicken Momos (6 pcs)",
+    desc: "Juicy chicken-filled dumplings with fiery chutney",
+    price: 140,
+    category: "snacks",
+    cuisine: "chinese",
+    veg: false,
+    spice: 2,
     image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&h=400&fit=crop&auto=format"
   },
   {
     id: "paneer-tikka",
     name: "Paneer Tikka",
-    desc: "Grilled cottage cheese with mountain spices",
+    desc: "Grilled cottage cheese marinated in mountain spices",
     price: 160,
     category: "snacks",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
+    badge: "Tandoor",
     image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chilli-paneer",
+    name: "Chilli Paneer (Dry / Gravy)",
+    desc: "Indo-Chinese classic – crisp paneer in spicy sauce",
+    price: 170,
+    category: "snacks",
+    cuisine: "chinese",
+    veg: true,
+    spice: 3,
+    badge: "Bestseller",
+    image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "spring-rolls",
+    name: "Veg Spring Rolls (4 pcs)",
+    desc: "Crispy rolls stuffed with seasoned vegetables",
+    price: 110,
+    category: "snacks",
+    cuisine: "chinese",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "manchurian",
+    name: "Veg Manchurian (Dry)",
+    desc: "Crispy veggie balls tossed in garlicky Indo-Chinese sauce",
+    price: 140,
+    category: "snacks",
+    cuisine: "chinese",
+    veg: true,
+    spice: 3,
+    image: "https://images.unsplash.com/photo-1606491956689-2ea8668802fa?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chicken-lollipop",
+    name: "Chicken Lollipop (6 pcs)",
+    desc: "Frenched winglets fried crisp with fiery Chinese marinade",
+    price: 220,
+    category: "snacks",
+    cuisine: "chinese",
+    veg: false,
+    spice: 3,
+    badge: "Spicy",
+    image: "https://images.unsplash.com/photo-1527477396000-e27173b57597?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "samosa",
+    name: "Aloo Samosa (2 pcs)",
+    desc: "Golden pastry filled with spiced potato & peas, with chutneys",
+    price: 50,
+    category: "snacks",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "medu-vada",
+    name: "Medu Vada (2 pcs)",
+    desc: "Crispy urad dal doughnuts served with sambar & chutneys",
+    price: 80,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "idli-sambar",
+    name: "Idli Sambar (3 pcs)",
+    desc: "Steamed rice cakes with hot sambar & coconut chutney",
+    price: 90,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    badge: "Light",
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "masala-dosa",
+    name: "Masala Dosa",
+    desc: "Crisp fermented crepe filled with spiced potato masala",
+    price: 120,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 2,
+    badge: "Must Try",
+    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "rava-dosa",
+    name: "Onion Rava Dosa",
+    desc: "Lacy semolina dosa with onions, green chillies & curry leaves",
+    price: 130,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "uttapam",
+    name: "Onion Tomato Uttapam",
+    desc: "Thick savoury pancake topped with onions, tomato & coriander",
+    price: 110,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "paneer-65",
+    name: "Paneer 65",
+    desc: "Deep-fried spicy paneer bites with curry leaves – Chennai style",
+    price: 160,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 3,
+    badge: "Spicy",
+    image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chicken-65",
+    name: "Chicken 65",
+    desc: "Iconic spicy deep-fried chicken with yoghurt & red chilli",
+    price: 200,
+    category: "snacks",
+    cuisine: "south-indian",
+    veg: false,
+    spice: 4,
+    badge: "Fiery",
+    image: "https://images.unsplash.com/photo-1527477396000-e27173b57597?w=400&h=400&fit=crop&auto=format"
   },
 
   // ========== MAINS ==========
@@ -117,6 +353,9 @@ const MENU = [
     desc: "Iconic black soybean curry – rich, earthy & protein-packed. Served with rice",
     price: 180,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     badge: "Signature",
     image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop&auto=format"
   },
@@ -126,6 +365,9 @@ const MENU = [
     desc: "Spinach & fenugreek greens thickened with rice flour + finger millet roti",
     price: 170,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
     badge: "State Food",
     image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=400&fit=crop&auto=format"
   },
@@ -135,6 +377,9 @@ const MENU = [
     desc: "Roasted black gram dal – smoky, hearty & warming",
     price: 150,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -143,6 +388,9 @@ const MENU = [
     desc: "Horse gram dal slow-cooked with local herbs",
     price: 140,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
     image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -151,6 +399,9 @@ const MENU = [
     desc: "Mashed radish & potato curry – rustic comfort food",
     price: 130,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -159,6 +410,9 @@ const MENU = [
     desc: "Complete meal: dal, seasonal sabzi, rice, roti, raita, pickle & dessert",
     price: 280,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     badge: "Best Value",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop&auto=format"
   },
@@ -168,7 +422,216 @@ const MENU = [
     desc: "Fragrant rice cooked with seasonal vegetables & spices",
     price: 140,
     category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "butter-paneer",
+    name: "Butter Paneer Masala",
+    desc: "Creamy tomato gravy with soft paneer cubes & butter",
+    price: 220,
+    category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
+    badge: "Popular",
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "dal-makhani",
+    name: "Dal Makhani",
+    desc: "Slow-cooked black lentils finished with cream & butter",
+    price: 180,
+    category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chicken-biryani",
+    name: "Hyderabadi Chicken Biryani",
+    desc: "Aromatic basmati rice layered with spiced chicken & dum-cooked",
+    price: 280,
+    category: "mains",
+    cuisine: "indian",
+    veg: false,
+    spice: 3,
+    badge: "Signature",
+    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "veg-biryani",
+    name: "Veg Dum Biryani",
+    desc: "Fragrant basmati with mixed veggies, saffron & fried onions",
+    price: 200,
+    category: "mains",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "hakka-noodles",
+    name: "Veg Hakka Noodles",
+    desc: "Stir-fried noodles with crunchy veggies & soy sauce",
+    price: 150,
+    category: "mains",
+    cuisine: "chinese",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chicken-hakka",
+    name: "Chicken Hakka Noodles",
+    desc: "Wok-tossed noodles with chicken strips & peppers",
+    price: 180,
+    category: "mains",
+    cuisine: "chinese",
+    veg: false,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "fried-rice",
+    name: "Veg Fried Rice",
+    desc: "Classic Chinese-style fried rice with mixed vegetables",
+    price: 140,
+    category: "mains",
+    cuisine: "chinese",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "schezwan-fried-rice",
+    name: "Schezwan Fried Rice",
+    desc: "Fiery schezwan sauce fried rice with garlic & chilli",
+    price: 160,
+    category: "mains",
+    cuisine: "chinese",
+    veg: true,
+    spice: 4,
+    badge: "Spicy",
+    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chilli-chicken",
+    name: "Chilli Chicken (Dry / Gravy)",
+    desc: "Boneless chicken tossed with peppers in spicy soy-garlic sauce",
+    price: 240,
+    category: "mains",
+    cuisine: "chinese",
+    veg: false,
+    spice: 3,
+    badge: "Bestseller",
+    image: "https://images.unsplash.com/photo-1527477396000-e27173b57597?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "kung-pao",
+    name: "Kung Pao Chicken",
+    desc: "Sichuan-inspired chicken with peanuts, chilli & sweet-savoury glaze",
+    price: 260,
+    category: "mains",
+    cuisine: "chinese",
+    veg: false,
+    spice: 3,
+    image: "https://images.unsplash.com/photo-1527477396000-e27173b57597?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "manchow-soup-meal",
+    name: "Hot & Sour Soup Bowl",
+    desc: "Hearty Chinese soup with veggies, tofu & a tangy kick",
+    price: 130,
+    category: "mains",
+    cuisine: "chinese",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "sambar-rice",
+    name: "Sambar Rice",
+    desc: "Comforting rice mixed with lentil sambar & tempering",
+    price: 120,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 2,
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "curd-rice",
+    name: "Curd Rice",
+    desc: "Cooling tempered yogurt rice with mustard, ginger & curry leaves",
+    price: 100,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 0,
+    badge: "Comfort",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "lemon-rice",
+    name: "Lemon Rice",
+    desc: "Tangy tempered rice with peanuts, turmeric & fresh lemon",
+    price: 110,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "bisibelebath",
+    name: "Bisi Bele Bath",
+    desc: "Karnataka special – spicy lentil-rice with veggies & ghee",
+    price: 150,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 3,
+    badge: "Signature",
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "meals-south",
+    name: "South Indian Meals",
+    desc: "Rice, sambar, rasam, poriyal, kootu, curd, pickle & appalam",
+    price: 220,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 2,
+    badge: "Best Value",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "chettinad-chicken",
+    name: "Chettinad Chicken Curry",
+    desc: "Fiery Tamil Nadu curry with roasted spices & coconut",
+    price: 260,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: false,
+    spice: 4,
+    badge: "Fiery",
+    image: "https://images.unsplash.com/photo-1527477396000-e27173b57597?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "appaam-stew",
+    name: "Appam with Vegetable Stew",
+    desc: "Soft lacy hoppers with mild coconut vegetable stew",
+    price: 180,
+    category: "mains",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&h=400&fit=crop&auto=format"
   },
 
   // ========== SWEETS ==========
@@ -178,6 +641,9 @@ const MENU = [
     desc: "Famous Almora sweet – roasted khoya coated with sugar balls",
     price: 70,
     category: "sweets",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     badge: "Famous",
     image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop&auto=format"
   },
@@ -187,6 +653,9 @@ const MENU = [
     desc: "Khoya & coconut sweet wrapped in malu leaf",
     price: 50,
     category: "sweets",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -195,6 +664,9 @@ const MENU = [
     desc: "Barnyard millet pudding – light & fragrant",
     price: 80,
     category: "sweets",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -203,7 +675,56 @@ const MENU = [
     desc: "Soft milk-solid dumplings in sugar syrup",
     price: 60,
     category: "sweets",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
     image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "rasmalai",
+    name: "Rasmalai (2 pcs)",
+    desc: "Soft paneer patties soaked in saffron-cardamom milk",
+    price: 90,
+    category: "sweets",
+    cuisine: "indian",
+    veg: true,
+    spice: 0,
+    badge: "Popular",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "payasam",
+    name: "Semiya Payasam",
+    desc: "South Indian vermicelli pudding with ghee, cashews & raisins",
+    price: 80,
+    category: "sweets",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 0,
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "mysore-pak",
+    name: "Mysore Pak (2 pcs)",
+    desc: "Rich ghee-laden gram flour fudge from Karnataka",
+    price: 70,
+    category: "sweets",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 0,
+    badge: "Classic",
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "date-pancake",
+    name: "Chinese Date Pancake",
+    desc: "Crispy sweet pancake filled with red date paste",
+    price: 90,
+    category: "sweets",
+    cuisine: "chinese",
+    veg: true,
+    spice: 0,
+    image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&h=400&fit=crop&auto=format"
   },
 
   // ========== COMBOS ==========
@@ -213,6 +734,9 @@ const MENU = [
     desc: "Pahadi Chai + Aloo Gutke + 2 Mandua Roti",
     price: 150,
     category: "combos",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     badge: "Popular",
     image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=400&fit=crop&auto=format"
   },
@@ -222,6 +746,9 @@ const MENU = [
     desc: "Bhatt Ki Churkani + Rice + Raita + Pickle",
     price: 210,
     category: "combos",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
     image: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&h=400&fit=crop&auto=format"
   },
   {
@@ -230,14 +757,62 @@ const MENU = [
     desc: "Any 2 snacks + 2 hot beverages",
     price: 220,
     category: "combos",
+    cuisine: "indian",
+    veg: true,
+    spice: 1,
     image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "combo-chinese",
+    name: "Indo-Chinese Feast",
+    desc: "Hakka Noodles + Chilli Paneer + Manchow Soup",
+    price: 320,
+    category: "combos",
+    cuisine: "chinese",
+    veg: true,
+    spice: 3,
+    badge: "Value",
+    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "combo-south",
+    name: "South Indian Breakfast Combo",
+    desc: "Idli + Vada + Mini Dosa + Filter Coffee",
+    price: 180,
+    category: "combos",
+    cuisine: "south-indian",
+    veg: true,
+    spice: 1,
+    badge: "Popular",
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=400&fit=crop&auto=format"
+  },
+  {
+    id: "combo-family",
+    name: "Family Mixed Platter",
+    desc: "Dosa + Hakka Noodles + Paneer Tikka + 2 Lassi",
+    price: 450,
+    category: "combos",
+    cuisine: "indian",
+    veg: true,
+    spice: 2,
+    badge: "Share",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop&auto=format"
   }
 ];
 
 const CATEGORY_LABELS = {
-  beverages: "Beverages",
+  beverages: "Beverages & Soups",
   snacks: "Snacks & Starters",
   mains: "Main Course",
   sweets: "Sweets & Desserts",
   combos: "Value Combos"
 };
+
+const CUISINE_LABELS = {
+  all: "All Cuisines",
+  chinese: "Chinese",
+  indian: "Indian",
+  "south-indian": "South Indian"
+};
+
+const SPICE_LABELS = ["Mild", "Light", "Medium", "Spicy", "Fiery"];

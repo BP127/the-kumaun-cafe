@@ -11,6 +11,9 @@ Customers scan a QR → browse authentic Kumaoni menu on their phone → add ite
 | Feature | Description |
 |---------|-------------|
 | **QR Digital Menu** | Mobile-first, beautiful menu with categories |
+| **Multi-cuisine** | Chinese, Indian & South Indian with cuisine tabs |
+| **Live search & filters** | Search dishes, veg/non-veg, spice sort, favourites |
+| **Dish detail modal** | Tap any item for full details & quick add |
 | **Shopping Cart** | Add / remove items with live quantity controls |
 | **Table Ordering** | Customer enters table number + optional name & notes |
 | **Bill Generation** | Clear order summary + total |
@@ -99,6 +102,9 @@ Each item looks like:
   desc: "Spicy roasted potatoes with jakhiya seeds & red chillies",
   price: 90,
   category: "snacks",   // beverages | snacks | mains | sweets | combos
+  cuisine: "indian",    // chinese | indian | south-indian
+  veg: true,            // vegetarian flag
+  spice: 2,             // 0–4 heat level
   badge: "Must Try"     // optional
 }
 ```
