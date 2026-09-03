@@ -1247,7 +1247,8 @@ svg {
 /* Item detail modal */
 .item-modal-content {
   padding: 0 0 28px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .item-modal-content .modal-close {
