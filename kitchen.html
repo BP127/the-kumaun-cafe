@@ -7,26 +7,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #2d5a3d;
-      --accent: #c45c26;
-      --bg: #1a1a1a;
-      --card: #2a2a2a;
-      --text: #f0f0f0;
-      --muted: #999;
-      --pending: #e6a817;
-      --preparing: #3b82f6;
-      --ready: #22c55e;
+      --primary: #26513a;
+      --accent: #d4742f;
+      --bg: #151a16;
+      --card: #1f2721;
+      --text: #eef5ef;
+      --muted: #a2b1a3;
+      --pending: #f1b81c;
+      --preparing: #5396ff;
+      --ready: #2fd06d;
+      --line: #2f3c33;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', system-ui, sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top right, #253229 0%, transparent 45%), var(--bg);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
     }
     header {
-      background: var(--primary);
+      background: linear-gradient(120deg, #1a3929 0%, var(--primary) 55%, #3a7253 100%);
       padding: 16px 24px;
       display: flex;
       align-items: center;
@@ -53,12 +54,13 @@
       color: white;
       padding: 8px 14px;
       min-height: 40px;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       font-family: inherit;
       font-size: 0.85rem;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
-    .refresh-btn:hover, .clear-btn:hover { background: rgba(255,255,255,0.25); }
+    .refresh-btn:hover, .clear-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
     .status {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -81,11 +83,15 @@
     }
     .order-card {
       background: var(--card);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 18px;
       border-left: 5px solid var(--pending);
       animation: fadeIn 0.3s ease;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    .order-card:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24); }
     .order-card.preparing { border-left-color: var(--preparing); }
     .order-card.ready { border-left-color: var(--ready); }
     .order-card.completed { opacity: 0.5; }
@@ -131,7 +137,7 @@
       margin-right: 8px;
     }
     .notes {
-      background: #333;
+      background: #2a342d;
       padding: 8px 12px;
       border-radius: 8px;
       font-size: 0.85rem;
@@ -154,14 +160,14 @@
       min-width: 90px;
       padding: 10px;
       border: none;
-      border-radius: 10px;
+      border-radius: 11px;
       font-weight: 600;
       font-size: 0.85rem;
       cursor: pointer;
       font-family: inherit;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.2s;
     }
-    .action-btn:hover { opacity: 0.85; }
+    .action-btn:hover { opacity: 0.9; transform: translateY(-1px); }
     .btn-prepare { background: var(--preparing); color: white; }
     .btn-ready { background: var(--ready); color: white; }
     .btn-done { background: #555; color: white; }
@@ -175,21 +181,21 @@
     .filter-btn {
       padding: 8px 16px;
       border-radius: 20px;
-      border: 1px solid #444;
-      background: transparent;
+      border: 1px solid #3b4a3f;
+      background: rgba(0,0,0,0.15);
       color: var(--muted);
       cursor: pointer;
       font-family: inherit;
       font-size: 0.85rem;
     }
     .filter-btn.active {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #3b7556 100%);
       color: white;
       border-color: var(--primary);
     }
     .note-banner {
-      background: #2d3a2e;
-      border: 1px solid #3d5a40;
+      background: #222d26;
+      border: 1px solid #375441;
       border-radius: 12px;
       padding: 14px 18px;
       margin-bottom: 20px;
